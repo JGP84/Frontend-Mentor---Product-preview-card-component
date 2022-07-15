@@ -9,19 +9,32 @@ const ContainerProduct = styled.div`
   max-width: 550px;
   margin-top: 1em;
 
-  ${responsive.mobile} {
+  ${responsive.small} {
     display: flex;
     flex-direction: column;
   }
 `;
-const ImgProduct = styled.img`
+const ImgProductDesktop = styled.img`
   height: 80%;
   max-height: 400px;
   border-radius: 8px 0px 0px 8px;
   object-fit: cover;
 
-  ${responsive.mobile} {
+  ${responsive.small} {
     border-radius: 8px 8px 0px 0px;
+    display: none;
+  }
+`;
+const ImgProductMobile = styled.img`
+  height: 80%;
+  max-height: 400px;
+  border-radius: 8px 0px 0px 8px;
+  object-fit: cover;
+  display: none;
+
+  ${responsive.small} {
+    border-radius: 8px 8px 0px 0px;
+    display: block;
   }
 `;
 const ContainerContent = styled.div`
@@ -31,7 +44,7 @@ const ContainerContent = styled.div`
   flex: 1;
   border-radius: 0px 8px 8px 0px;
 
-  ${responsive.mobile} {
+  ${responsive.small} {
     border-radius: 0px 0px 8px 8px;
   }
 `;
@@ -92,23 +105,21 @@ const Button = styled.button`
   border-radius: 10px;
   margin-top: 1.5em;
 
-  ${responsive.mobile} {
+  ${responsive.small} {
     margin-bottom: 1.5em;
   }
 `;
 
 const imgDesktop = "/images/image-product-desktop.jpg";
 const imgMobile = "/images/image-product-mobile.jpg";
-const witdthViewport = window.innerWidth;
 
 const Card = () => {
   return (
     <>
       <ContainerProduct>
-        <ImgProduct
-          src={witdthViewport > 375 ? imgDesktop : imgMobile}
-          alt="eau de cologne"
-        />
+        <ImgProductDesktop src={imgDesktop} alt="eau de cologne" />
+        <ImgProductMobile src={imgMobile} alt="eau de cologne" />
+
         <ContainerContent>
           <WrapperContent>
             <TitleCategory>perfume</TitleCategory>

@@ -1,5 +1,5 @@
 const responsive = {
-    mobile: '@media(max-width: 375px)'
+    small: '@media(max-width: 620px)'
     } 
 
 export default responsive
